@@ -22,7 +22,6 @@ public class HorarioDisponivelService {
     }
 
     // Buscar horário disponível por ID
-
     public Optional<HorarioDisponivel> buscarHorarioPorId(Long id) {
         return horarioDisponivelRepository.findById(id);
     }
