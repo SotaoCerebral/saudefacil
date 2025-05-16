@@ -20,6 +20,13 @@ public class UsuarioController {
     @Autowired
     private UsuarioService service;
 
+    @RestController
+    public class HealthCheckController {
+        @GetMapping("/healthz")
+        public ResponseEntity<String> healthCheck() {
+            return ResponseEntity.ok("OK");
+        }
+    }
     @CrossOrigin(origins = "*")
     @PostMapping()
     public ResponseEntity<Usuario> criarUsuario(@RequestBody DadosAutenticacao dadosAutenticacao) {
