@@ -6,10 +6,12 @@ import com.saude.facil.demo.entity.medicos.enums.StatusAgendamento;
 import com.saude.facil.demo.entity.medicos.enums.TipoConsulta;
 import com.saude.facil.demo.repository.AgendamentoRepository;
 import com.saude.facil.demo.repository.HorarioDisponivelRepository;
+import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 
+import java.io.OptionalDataException;
 import java.util.Optional;
 
 @Service
@@ -25,7 +27,6 @@ public class AgendamentoService {
     public Optional<Agendamento> criarAgendamento(Long pacienteId, Long medicoId, String data, String hora, TipoConsulta tipoConsulta, String observacoes) {
 
         Optional<HorarioDisponivel> horario = horarioDisponivelRepository.findByMedicoIdAndDataAndHoraAndDisponivelTrue(medicoId, data, hora);
-        System.out.println(horario);
         if (horario.isPresent()) {
             // Atualiza disponibilidade do horário
             HorarioDisponivel horarioDisponivel = horario.get();
@@ -37,7 +38,7 @@ public class AgendamentoService {
             return Optional.of(agendamentoRepository.save(novoAgendamento));
         }
 
-        return Optional.empty(); // Horário indisponível
+        throw new EntityNotFoundException("Horário indisponível para agendamento.");
     }
 
     // Buscar agendamento por ID

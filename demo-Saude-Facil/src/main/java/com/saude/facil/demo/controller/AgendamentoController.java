@@ -28,8 +28,7 @@ public class AgendamentoController {
             @RequestParam String hora,
             @RequestParam TipoConsulta tipoConsulta,
             @RequestParam(required = false) String observacoes) {
-        Optional<Agendamento> agendamento = agendamentoService.criarAgendamento(pacienteId, medicoId, data, hora, tipoConsulta, observacoes);
-        return ResponseEntity.ok(agendamento);
+        return ResponseEntity.ok(agendamentoService.criarAgendamento(pacienteId, medicoId, data, hora, tipoConsulta, observacoes));
     }
 
     @CrossOrigin(origins = "*")
