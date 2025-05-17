@@ -8,6 +8,7 @@ com\saude\facil\demo\controller\HorarioDisponivelController.class
 com\saude\facil\demo\controller\MedicoController.class
 com\saude\facil\demo\service\UsuarioService.class
 com\saude\facil\demo\controller\PacienteController.class
+com\saude\facil\demo\controller\UsuarioController$HealthCheckController.class
 com\saude\facil\demo\entity\paciente\Paciente.class
 com\saude\facil\demo\config\SecutiryConfigurations.class
 com\saude\facil\demo\entity\paciente\dto\PacienteResponseDTO.class
