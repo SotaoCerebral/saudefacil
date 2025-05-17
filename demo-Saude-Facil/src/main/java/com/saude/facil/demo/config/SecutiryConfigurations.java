@@ -30,6 +30,7 @@ public class SecutiryConfigurations {
                                 .requestMatchers(HttpMethod.PATCH,"/usuarios").permitAll()
                                 .requestMatchers(HttpMethod.POST,"/usuarios/criar-paciente").permitAll()
                                 .requestMatchers(HttpMethod.POST,"/pacientes").permitAll()
+                                .requestMatchers(HttpMethod.POST,"/medicos").permitAll()
                                 .requestMatchers(HttpMethod.GET,"/medicos").permitAll()
                                 .requestMatchers(HttpMethod.GET,"/pacientes").hasRole("ADMIN")
                                 .requestMatchers(HttpMethod.GET,"/pacientes/{id}").hasRole("ADMIN")
