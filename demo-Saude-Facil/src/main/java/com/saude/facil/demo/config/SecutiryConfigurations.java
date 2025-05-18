@@ -37,7 +37,7 @@ public class SecutiryConfigurations {
                                 .requestMatchers(HttpMethod.PUT,"/pacientes/{id}").hasRole("COMUM")
                                 .requestMatchers(HttpMethod.POST,"/horarios-disponiveis").hasRole("ADMIN")
                                 .requestMatchers(HttpMethod.PUT,"/horarios-disponiveis/{id}").hasRole("ADMIN")
-                                .requestMatchers(HttpMethod.GET, "/agendamentos").hasRole("ADMIN")
+                                .requestMatchers(HttpMethod.GET, "/agendamentos").permitAll()
                                 .requestMatchers(HttpMethod.POST, "/agendamentos").permitAll()
                                 .requestMatchers(HttpMethod.DELETE,"/horarios-disponiveis/{id}").hasRole("ADMIN")
                                 .requestMatchers(HttpMethod.GET, "/medicos/{id}").permitAll()
